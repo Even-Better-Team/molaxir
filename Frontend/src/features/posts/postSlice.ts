@@ -9,9 +9,9 @@ const JSON_PLACEHOLDER_API = 'https://jsonplaceholder.typicode.com/posts?_limit=
 // Action  ( 상태를 변경하기 위한 정보를 담은 객체 )
 
 // axios를 사용하여 위의 JSON_PLACEHOLDER_API (line 7)의 데이터를 불러온다. (line 19)
-// createAsyncThunk() 가 기존 redux의 ''미들웨어 (redux-thunk || redux-saga)'' 역할을 하여 contextAPI등과 달리 '''비동기적'''으로 처리되는 데이터도 ''프로젝트전역''에서 관리할수 있게한다. (line 14)
+// createAsyncThunk() 가 기존 redux의 ''미들웨어 (redux-thunk || redux-saga)'' 역할을 하여 contextAPI등과 달리 '''비동기적'''으로 처리되는 데이터도 ''프로젝트전역''에서 관리할수 있게한다. (line 17)
 // 전혀 구조상 관계없는 pages/Test.tsx에서 아래 함수를 사용하였음.
-// (line 18~19) 는 에러 처리 thunjApi는 내장 메소드 이며 rejectWithValue는 Promise가 실패하였을때 원인 반환
+// (line 21~23) 는 에러 처리 thunjApi는 내장 메소드 이며 rejectWithValue는 Promise가 실패하였을때 원인 반환
 // https://redux-toolkit.js.org/api/createAsyncThunk 하단 payloadCreator에 관련내용 있음
 
 export const getPosts = createAsyncThunk('posts/getPosts', async (data, thunkApi) => {

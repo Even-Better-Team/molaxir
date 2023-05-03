@@ -64,6 +64,6 @@ export default Test;
 // 리덕스 툴킷   https://redux-toolkit.js.org/introduction/getting-started,
 // 테일윈드 css https://tailwindcss.com/docs/installation
 
-// className의 bg-yellow-100 은 css의 'background-color: yellow' yellow 뒤의 숫자는 50~950까지 가능하며 클수록 색이 진함 (line 16)
-// grid 관련 문서 https://tailwindcss.com/docs/display#grid (line 17)
-// md:grid-cols-6 의 'md' 는  브라우저의 중간사이즈이상에서 gird-cols-6 적용, 사이즈를 중간 이하로 줄이면 gird-cols-4 가 적용됨 확인요망!! (line 17)
+// className의 bg-yellow-100 은 css의 'background-color: yellow' yellow 뒤의 숫자는 50~950까지 가능하며 클수록 색이 진함 (line 35)
+// grid 관련 문서 https://tailwindcss.com/docs/display#grid (line 36)
+// md:grid-cols-6 의 'md' 는  브라우저의 중간사이즈이상에서 gird-cols-6 적용, 사이즈를 중간 이하로 줄이면 gird-cols-4 가 적용됨 확인요망!! (line 36)

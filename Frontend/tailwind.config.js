@@ -7,4 +7,4 @@ module.exports = {
   plugins: [],
 };
 
-// 테일윈드 번들링
+// 테일윈드 번들링 (vue파일을 사용하고 싶으면 content안에 vue를 넣으면됨)
