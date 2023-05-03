@@ -6,3 +6,5 @@ module.exports = {
   },
   plugins: [],
 };
+
+// 테일윈드 번들링
