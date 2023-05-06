@@ -2,24 +2,32 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
-  "type": "module",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon --exec babel-node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.21.5"
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mysql": "^2.18.1",
-    "typeorm": "^0.3.15"
-  },
-  "devDependencies": {
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.22"
+    "mysql2": "^3.2.4",
+    "nodemon": "^2.0.22",
+    "typeorm": "^0.3.15"
   }
 }

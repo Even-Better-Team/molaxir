@@ -2,23 +2,20 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { creatApp } from "./app.js";
-import { appDataSource } from "./models/index.js";
+import database from "./models/database.js";
 
-export const startServer = async () => {
-  const app = creatApp();
-  const PORT = process.env.PORT;
-
-  await appDataSource
-    .initialize()
-    .then(() => {
-      const server = app.listen(PORT, () => {
-        console.log(`server is listening on ${PORT}👌`);
-      });
-    })
-    .catch((err) => {
-      console.log(`Failed server connect❌`);
-      appDataSource.destroy();
+const startServer = async () => {
+  try {
+    await database;
+    const app = creatApp();
+    const PORT = process.env.PORT;
+    app.listen(PORT, () => {
+      console.log(`server is listening on ${PORT}👌`);
     });
+  } catch (err) {
+    console.log(`Failed server connect❌`);
+    database.destroy();
+  }
 };
 
 startServer();
