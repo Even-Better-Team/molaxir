@@ -4,7 +4,7 @@ import morgan from "morgan";
 import routes from "./routes/index";
 import { globalErrorHandler } from "./utils/errors";
 
-export const creatApp = () => {
+export const createApp = () => {
   const app = express();
 
   app.use(express.json());
