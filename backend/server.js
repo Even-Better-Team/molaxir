@@ -1,6 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 import { creatApp } from "./app.js";
 import database from "./models/database.js";
 

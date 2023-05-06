@@ -9,7 +9,7 @@ export const creatApp = () => {
 
   app.use(express.json());
   app.use(cors());
-  app.use(morgan("tiny"));
+  app.use(morgan("dev"));
 
   app.use(routes);
 
