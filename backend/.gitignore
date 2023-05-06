@@ -1,5 +1,6 @@
 node_modules
 schema.sql
+.DS_Store
 # Created by https://www.toptal.com/developers/gitignore/api/dotenv,vim,macos,node,visualstudiocode,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=dotenv,vim,macos,node,visualstudiocode,linux
 
