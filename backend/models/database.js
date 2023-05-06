@@ -1,8 +1,8 @@
-import { createConnection } from "typeorm";
+import { DataSource } from "typeorm";
 import dotenv from "dotenv";
 dotenv.config();
 
-const database = createConnection({
+const database = new DataSource({
   type: process.env.DB_CONNECTION,
   host: process.env.DB_HOST,
   username: process.env.DB_USERNAME,
