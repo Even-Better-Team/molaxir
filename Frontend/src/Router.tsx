@@ -7,8 +7,13 @@ import AllProductsList from './pages/categories/shop/AllProductsList';
 import BodyCareList from './pages/categories/shop/BodyCareList';
 import Shop from './pages/categories/shop/Shop';
 import SkinCareList from './pages/categories/shop/SkinCareList';
+import Join from './pages/join/Join';
+import Login from './pages/login/Login';
 import Main from './pages/Main';
+import MyPage from './pages/mypage/MyPage';
+import OrderList from './pages/orderlist/OrderList';
 import Test from './pages/Test';
+import WishList from './pages/wishlist/WishList';
 
 function Router() {
   return (
@@ -23,6 +28,11 @@ function Router() {
         <Route path="/bodycare" element={<BodyCareList />} />
         <Route path="/about" element={<About />} />
         <Route path="/routine" element={<Routine />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/join" element={<Join />} />
+        <Route path="/wish-list" element={<WishList />} />
+        <Route path="/order-list" element={<OrderList />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </BrowserRouter>
   );
