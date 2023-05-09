@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+import ShopBestItems from './ShopBestItems';
 
 const Shop: FC = () => {
   return (
@@ -26,6 +27,9 @@ const Shop: FC = () => {
       </div>
       <div className="mt-20">
         <div className="text-xl">Best Items</div>
+      </div>
+      <div>
+        <ShopBestItems />
       </div>
     </div>
   );
