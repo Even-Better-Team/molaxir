@@ -145,7 +145,7 @@ export const getBestSellerProducts = async () => {
       p.category_name AS categoryName,
       p.price,
       p.discount_price AS discountPrice,
-      JSON_ARRAYAGG(mi.url) AS images
+      JSON_ARRAYAGG(mi.url) AS imageUrl
     FROM products p
     JOIN main_images mi ON p.id = mi.product_id
     WHERE p.id=?
@@ -153,13 +153,23 @@ export const getBestSellerProducts = async () => {
     `,
       [product]
     );
-    bestSellerProducts.push(data);
+
+    const imageUrlArray = data[0].imageUrl;
+    if (typeof imageUrlArray === "string") {
+      imageUrlArray = JSON.parse(imageUrlArray);
+    }
+
+    const processedData = {
+      ...data[0],
+      imageUrl: imageUrlArray,
+    };
+    bestSellerProducts.push(processedData);
   }
   return bestSellerProducts;
 };
 
 export const getNewArrivalProducts = async () => {
-  const newArrivalProducts = await database.query(
+  const data = await database.query(
     `
     SELECT
       p.id,
@@ -175,5 +185,5 @@ export const getNewArrivalProducts = async () => {
     LIMIT 8
     `
   );
-  return newArrivalProducts;
+  return data;
 };
