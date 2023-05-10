@@ -1,5 +1,5 @@
-import productService from "../services/productService.js";
-import { catchAsync } from "../utils/errors.js";
+import * as productService from "../services/productService";
+import { catchAsync } from "../utils/errors";
 
 export const getProductDetail = catchAsync(async (req, res) => {
   const { productId } = req.params;
@@ -12,4 +12,9 @@ export const getProductDetail = catchAsync(async (req, res) => {
 
   const data = await productService.getProductDetail(productId);
   res.status(200).json({ data });
+});
+
+export const getMainProducts = catchAsync(async (req, res) => {
+  const productList = await productService.getMainProducts();
+  return res.status(200).json({ data: productList });
 });

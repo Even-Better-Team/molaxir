@@ -120,3 +120,58 @@ export const getProductDetail = async (productId) => {
 //     pq.
 //   )
 // )productQna
+
+export const getBestSellerProducts = async () => {
+  const bestSellerProductId = await database.query(
+    `
+    SELECT
+      o.product_id,
+      COUNT(*) AS order_count
+    FROM orders o
+    GROUP BY product_id
+    ORDER BY order_count DESC
+    LIMIT 3
+    `
+  );
+  const productId = bestSellerProductId.map((product) => product.product_id);
+  const bestSellerProducts = [];
+  for (let i = 0; i < productId.length; i++) {
+    const product = productId[i];
+    const data = await database.query(
+      `
+    SELECT
+      p.id,
+      p.name,
+      p.price,
+      p.discount_price AS discountPrice,
+      REPLACE(JSON_ARRAYAGG(mi.url), ',', ', ') AS imageUrl
+    FROM products p
+    JOIN main_images mi ON p.id = mi.product_id
+    WHERE p.id=?
+    GROUP BY p.id, p.name, p.price, p.discount_price
+    `,
+      [product]
+    );
+    bestSellerProducts.push(data);
+  }
+  return bestSellerProducts;
+};
+
+export const getNewArrivalProducts = async () => {
+  const newArrivalProducts = await database.query(
+    `
+    SELECT
+      p.id,
+      p.name,
+      p.price,
+      p.discount_price AS discountPrice,
+      REPLACE(JSON_ARRAYAGG(mi.url), ',', ', ') AS imageUrl
+    FROM products p
+    JOIN main_images mi ON p.id = mi.product_id
+    GROUP BY p.id, p.name, p.price, p.discount_price
+    ORDER BY p.created_at DESC
+    LIMIT 8
+    `
+  );
+  return newArrivalProducts;
+};
