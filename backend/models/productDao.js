@@ -142,9 +142,10 @@ export const getBestSellerProducts = async () => {
     SELECT
       p.id,
       p.name,
+      p.category_name AS categoryName,
       p.price,
       p.discount_price AS discountPrice,
-      REPLACE(JSON_ARRAYAGG(mi.url), ',', ', ') AS imageUrl
+      JSON_ARRAYAGG(mi.url) AS images
     FROM products p
     JOIN main_images mi ON p.id = mi.product_id
     WHERE p.id=?
@@ -163,9 +164,10 @@ export const getNewArrivalProducts = async () => {
     SELECT
       p.id,
       p.name,
+      p.category_name AS categoryName,
       p.price,
       p.discount_price AS discountPrice,
-      REPLACE(JSON_ARRAYAGG(mi.url), ',', ', ') AS imageUrl
+      JSON_ARRAYAGG(mi.url) AS imageUrl
     FROM products p
     JOIN main_images mi ON p.id = mi.product_id
     GROUP BY p.id, p.name, p.price, p.discount_price
