@@ -1,3 +1,5 @@
+export const PAGE_PER_PRODUCTS = 8;
+
 export const LIMIT = {
   all: 6,
   skinCare: 5,

@@ -5,11 +5,11 @@ export const getShopProducts = async (categoryId, sort) => {
   const bestSellerProducts = await shopDao.getBestSellerProducts(
     bestSellerProductId
   );
-  const products =
+  const productList =
     categoryId === "all"
       ? await shopDao.getAllProducts(sort)
       : await shopDao.getProducts(categoryId, sort);
 
-  products.bestSeller = bestSellerProducts;
-  return products;
+  productList.bestSeller = bestSellerProducts;
+  return productList;
 };
