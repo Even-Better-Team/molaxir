@@ -6,6 +6,7 @@ import TestCard from './TestCard';
 
 const Test: FC = () => {
   const dispatch = useAppDispatch();
+  const MemoizedTestCard = React.memo(TestCard);
 
   //postSlice.ts에 저장한 'getPosts' action을 사용 (line 12~14)
 
@@ -32,15 +33,15 @@ const Test: FC = () => {
   };
 
   return (
-    <div className="bg-yellow-100">
-      <div className="grid grid-cols-4 md:grid-cols-6">
+    <div className="bg-yellow-100 mt-[124px]">
+      <div className="test">
         {loading ? (
           <div> loading ....</div>
         ) : (
           data &&
           data.map((post) => (
             <div className=" border " key={post.id}>
-              <TestCard post={post} />
+              <MemoizedTestCard post={post} />
             </div>
           ))
         )}
