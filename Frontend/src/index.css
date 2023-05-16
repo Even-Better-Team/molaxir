@@ -3,3 +3,9 @@
 @tailwind utilities;
 
 /* 테일윈드 초기설정 */
+
+@layer components {
+    .test {
+      @apply grid grid-cols-4 md:grid-cols-6
+    }
+  }

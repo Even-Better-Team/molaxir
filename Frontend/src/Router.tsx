@@ -12,6 +12,7 @@ import Login from './pages/login/Login';
 import Main from './pages/Main';
 import MyPage from './pages/mypage/MyPage';
 import OrderList from './pages/orderlist/OrderList';
+import Search from './pages/search/Search';
 import Test from './pages/Test';
 import WishList from './pages/wishlist/WishList';
 
@@ -33,6 +34,7 @@ function Router() {
         <Route path="/wish-list" element={<WishList />} />
         <Route path="/order-list" element={<OrderList />} />
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </BrowserRouter>
   );

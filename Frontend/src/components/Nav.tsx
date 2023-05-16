@@ -1,14 +1,18 @@
-import React, { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { FC, useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import ShopModal from './ShopModal';
 import { SlMagnifier } from 'react-icons/sl';
 import { BsHeart } from 'react-icons/bs';
 import { GrShop } from 'react-icons/gr';
 import FilterModal from './FilterModal';
+import { openFilter, closeFilter } from '../features/filters/filterSlice';
+import { useAppDispatch, useAppSelector } from '../hooks/useTypedSelector';
 
 const Nav: FC = () => {
   const [showModal, setShowModal] = useState(false);
-  const [showFilter, setShowFilter] = useState(false);
+  const dispatch = useAppDispatch();
+  const isOpen = useAppSelector((state) => state.filter.isOpen);
+  const location = useLocation();
 
   const handleMouseOver = () => {
     setShowModal(true);
@@ -17,16 +21,25 @@ const Nav: FC = () => {
     setShowModal(false);
   };
   const handleFilterClick = () => {
-    setShowFilter(true);
+    if (!isOpen) {
+      dispatch(openFilter());
+    } else {
+      dispatch(closeFilter());
+    }
   };
 
+  useEffect(() => {
+    dispatch(closeFilter());
+  }, [location]);
+
+  console.log(isOpen);
   const LEFT_CATEGORIES = [
     {
       name: 'Shop',
       onMouseOver: handleMouseOver,
       onMouseLeave: handleMouseLeave,
       modalComponent: showModal ? (
-        <div onMouseEnter={handleMouseOver} onMouseLeave={handleMouseLeave} className=" relative z-10">
+        <div onMouseEnter={handleMouseOver} onMouseLeave={handleMouseLeave} className=" relative z-1001">
           <ShopModal />
         </div>
       ) : null,
@@ -44,9 +57,9 @@ const Nav: FC = () => {
       component: <SlMagnifier />,
       isModal: true,
       path: '#',
-      modalComponent: showFilter ? (
+      modalComponent: isOpen ? (
         <div onClick={handleFilterClick} className=" relative z-10">
-          <FilterModal />
+          <FilterModal handleFilterClick={handleFilterClick} />
         </div>
       ) : null,
     },
@@ -55,7 +68,7 @@ const Nav: FC = () => {
   ];
 
   return (
-    <div className="flex justify-between items-center h-[124px] border-b border-grey-100 md:p-10">
+    <div className="flex justify-between items-center h-[124px] bg-white border-b border-grey-100 z-10 fixed top-0 left-0 right-0 md:p-10">
       <div>
         {LEFT_CATEGORIES.map((category) => (
           <Link
@@ -63,7 +76,7 @@ const Nav: FC = () => {
             key={category.name}
             onMouseEnter={category.onMouseOver}
             onMouseLeave={category.onMouseLeave}
-            className="mr-3 text-sm relative inline-block hover:text-gray-300"
+            className="mr-3 text-sm relative inline-block hover:text-gray-400"
           >
             {category.name}
             {category.modalComponent}
@@ -81,7 +94,7 @@ const Nav: FC = () => {
               {category.modalComponent}
             </button>
           ) : (
-            <Link to={category.path} key={index} className="mr-3 relative hover:text-gray-300">
+            <Link to={category.path} key={index} className="mr-3 relative hover:text-gray-400">
               {category.name}
             </Link>
           )
