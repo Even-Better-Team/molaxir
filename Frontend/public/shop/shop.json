@@ -7,21 +7,21 @@
           "name": "product1",
           "price": 100,
           "discountPrice": 90,
-          "images": ["image1", "image2"]
+          "imageUrl": ["https://cdn.pixabay.com/photo/2023/04/16/08/35/cosmetics-7929472_1280.jpg", "https://cdn.pixabay.com/photo/2023/04/16/08/35/skincare-7929470_1280.jpg"]
         },
         {
           "id": 2,
           "name": "product2",
           "price": 200,
           "discountPrice": 180,
-          "images": ["image3", "image4"]
+          "imageUrl": ["https://cdn.pixabay.com/photo/2023/04/16/08/35/cosmetics-7929472_1280.jpg", "https://cdn.pixabay.com/photo/2023/04/16/08/35/skincare-7929470_1280.jpg"]
         },
         {
           "id": 3,
           "name": "product3",
           "price": 300,
           "discountPrice": 270,
-          "images": ["image5", "image6"]
+          "imageUrl": ["https://cdn.pixabay.com/photo/2023/04/16/08/35/cosmetics-7929472_1280.jpg", "https://cdn.pixabay.com/photo/2023/04/16/08/35/skincare-7929470_1280.jpg"]
         }
       ],
       "newArrivals": [
@@ -30,21 +30,42 @@
           "name": "product4",
           "price": 400,
           "discountPrice": 360,
-          "images": ["image7", "image8"]
+          "imageUrl": ["https://cdn.pixabay.com/photo/2023/04/16/08/35/cosmetics-7929472_1280.jpg", "https://cdn.pixabay.com/photo/2023/04/16/08/35/skincare-7929470_1280.jpg"]
         },
         {
           "id": 5,
           "name": "product5",
           "price": 500,
           "discountPrice": 450,
-          "images": ["image9", "image10"]
+          "imageUrl": ["https://cdn.pixabay.com/photo/2023/04/16/08/35/cosmetics-7929472_1280.jpg", "https://cdn.pixabay.com/photo/2023/04/16/08/35/skincare-7929470_1280.jpg"]
         },
         {
           "id": 6,
           "name": "product6",
           "price": 600,
           "discountPrice": 540,
-          "images": ["image11", "image12"]
+          "imageUrl": ["https://cdn.pixabay.com/photo/2023/04/16/08/35/skincare-7929470_1280.jpg","https://cdn.pixabay.com/photo/2023/04/16/08/35/cosmetics-7929472_1280.jpg"]
+        },
+        {
+          "id": 7,
+          "name": "product7",
+          "price": 600,
+          "discountPrice": 540,
+          "imageUrl": ["https://cdn.pixabay.com/photo/2023/04/16/08/35/cosmetics-7929472_1280.jpg", "https://cdn.pixabay.com/photo/2023/04/16/08/35/skincare-7929470_1280.jpg"]
+        },
+        {
+          "id": 8,
+          "name": "product8",
+          "price": 600,
+          "discountPrice": 540,
+          "imageUrl": ["https://cdn.pixabay.com/photo/2023/04/16/08/35/cosmetics-7929472_1280.jpg", "https://cdn.pixabay.com/photo/2023/04/16/08/35/skincare-7929470_1280.jpg"]
+        },
+        {
+          "id": 9,
+          "name": "product9",
+          "price": 600,
+          "discountPrice": 540,
+          "imageUrl": ["https://cdn.pixabay.com/photo/2023/04/16/08/35/cosmetics-7929472_1280.jpg", "https://cdn.pixabay.com/photo/2023/04/16/08/35/skincare-7929470_1280.jpg"]
         }
       ]
     }

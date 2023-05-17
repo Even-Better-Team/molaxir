@@ -19,6 +19,9 @@ const FilterModal: React.FC<FilterModalProps> = ({ handleFilterClick }) => {
   };
 
   const handleInputSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === ' ') {
+      e.preventDefault();
+    }
     // 엔터 키를 눌렀을 때만 이벤트를 처리합니다.
     if (e.key === 'Enter') {
       // 이동할 경로를 설정하고, 검색어를 쿼리 파라미터로 전달합니다.
@@ -32,13 +35,13 @@ const FilterModal: React.FC<FilterModalProps> = ({ handleFilterClick }) => {
 
   return (
     <div
-      className="fixed top-[124px] left-0 right-0 bottom-0 z-999 bg-black cursor-default"
+      className="fixed top-[124px] left-0 right-0 bottom-0 bg-black cursor-default"
       style={{ backgroundColor: 'rgba(0,0,0,0.4)' }}
-      onClick={handleFilterClick}
+      // onClick={handleFilterClick}
     >
-      <div className="fixed top-[90px] left-0 right-0 z-999 h-[20px] p-2 opacity-100 bg-white" style={{ opacity: 1 }}>
+      <div className="fixed top-[90px] left-0 right-0 h-[20px] p-2 opacity-100 bg-white" style={{ opacity: 1 }}>
         <input
-          className=" absolute top-0 left-0 bg-white w-full h-full opacity-100 p-10 focus:outline-none"
+          className=" absolute top-0 left-0  w-full h-full opacity-100 p-10 bg-white focus:outline-none"
           placeholder="무엇을 찾아드릴까요?"
           style={{ opacity: 1 }}
           onClick={handleInputClick}

@@ -32,14 +32,13 @@ const Nav: FC = () => {
     dispatch(closeFilter());
   }, [location]);
 
-  console.log(isOpen);
   const LEFT_CATEGORIES = [
     {
       name: 'Shop',
       onMouseOver: handleMouseOver,
       onMouseLeave: handleMouseLeave,
       modalComponent: showModal ? (
-        <div onMouseEnter={handleMouseOver} onMouseLeave={handleMouseLeave} className=" relative z-1001">
+        <div onMouseEnter={handleMouseOver} onMouseLeave={handleMouseLeave} className="relative z-10">
           <ShopModal />
         </div>
       ) : null,
@@ -58,7 +57,7 @@ const Nav: FC = () => {
       isModal: true,
       path: '#',
       modalComponent: isOpen ? (
-        <div onClick={handleFilterClick} className=" relative z-10">
+        <div onClick={handleFilterClick}>
           <FilterModal handleFilterClick={handleFilterClick} />
         </div>
       ) : null,
@@ -76,7 +75,7 @@ const Nav: FC = () => {
             key={category.name}
             onMouseEnter={category.onMouseOver}
             onMouseLeave={category.onMouseLeave}
-            className="mr-3 text-sm relative inline-block hover:text-gray-400"
+            className="mr-8 text-sm inline-block hover:text-gray-400"
           >
             {category.name}
             {category.modalComponent}
@@ -89,12 +88,12 @@ const Nav: FC = () => {
       <div className="flex items-center text-sm ">
         {RIGHT_CATEGORIES.map((category, index) =>
           category.isModal ? (
-            <button key={index} className="mr-3 relative" onClick={category.onClick}>
+            <button key={index} className="mr-5" onClick={category.onClick}>
               {category.component}
               {category.modalComponent}
             </button>
           ) : (
-            <Link to={category.path} key={index} className="mr-3 relative hover:text-gray-400">
+            <Link to={category.path} key={index} className="mr-5 hover:text-gray-400">
               {category.name}
             </Link>
           )
