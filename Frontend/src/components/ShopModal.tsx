@@ -18,7 +18,7 @@ const SHOPMODAL_CATEGORIES = [
 
 const ShopModal: FC = () => {
   return (
-    <div className="absolute top-0 left-0 p-3 border border-grey-200 text-black whitespace-nowrap bg-white w-36 animate-fade-in z-1001">
+    <div className=" absolute top-0 -left-5 p-3 border border-grey-200 text-black whitespace-nowrap bg-white w-36 animate-fade-in">
       {SHOPMODAL_CATEGORIES.map((category, index) => (
         <Link to={category.path} key={index} className="hover:bg-gray-100 block p-2 text-xs">
           {category.name}

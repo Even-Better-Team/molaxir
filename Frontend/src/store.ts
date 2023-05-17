@@ -3,6 +3,7 @@ import postSlice from './features/posts/postSlice';
 import counterSlice from './features/counters/counterSlice';
 import filterSlice from './features/filters/filterSlice';
 import filterValueSlice from './features/filters/filterValueSlice';
+import mainSlice from './features/main/bestSellerSlice';
 
 // redux '스토어' 를 생성 한다.   * (하단 링크 공식문서를 참조) *
 
@@ -11,7 +12,13 @@ import filterValueSlice from './features/filters/filterValueSlice';
 //                items: itemSlice},
 
 const store = configureStore({
-  reducer: { posts: postSlice, counter: counterSlice, filter: filterSlice, filterValue: filterValueSlice },
+  reducer: {
+    posts: postSlice,
+    counter: counterSlice,
+    filter: filterSlice,
+    filterValue: filterValueSlice,
+    mains: mainSlice,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
