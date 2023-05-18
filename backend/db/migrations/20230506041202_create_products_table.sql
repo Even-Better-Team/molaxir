@@ -2,6 +2,7 @@
 CREATE TABLE products (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(300) NOT NULL,
+  category_name VARCHAR(100) NULL,
   price DECIMAL(10,2) NULL DEFAULT 0,
   discount_price DECIMAL(10,2) NULL DEFAULT 0,
   description VARCHAR(3000) NULL,

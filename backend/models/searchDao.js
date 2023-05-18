@@ -9,7 +9,7 @@ export const getSearchProducts = async (keyword, sort) => {
     p.category_name AS categoryName,
     p.price,
     p.discount_price AS discountPrice,
-    JSON_ARRAYAGG(mi.url) AS images
+    JSON_ARRAYAGG(mi.url) AS imageUrl
   FROM products p
   JOIN main_images mi ON p.id = mi.product_id
   WHERE p.name LIKE '%${keyword}%'
@@ -17,5 +17,6 @@ export const getSearchProducts = async (keyword, sort) => {
   ORDER BY ${SORT_BY[sort]}
   `
   );
+
   return data;
 };

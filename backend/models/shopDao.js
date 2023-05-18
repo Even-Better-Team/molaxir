@@ -27,31 +27,6 @@ export const getBestSellerProductId = async (categoryId) => {
   return productId;
 };
 
-export const getBestSellerProducts = async (productId) => {
-  const bestSellerProducts = [];
-  for (let i = 0; i < productId.length; i++) {
-    const product = productId[i];
-    const data = await database.query(
-      `
-    SELECT
-      p.id,
-      p.name,
-      p.category_name AS categoryName,
-      p.price,
-      p.discount_price AS discountPrice,
-      JSON_ARRAYAGG(mi.url) AS images
-    FROM products p
-    JOIN main_images mi ON p.id = mi.product_id
-    WHERE p.id=?
-    GROUP BY p.id, p.name, p.price, p.discount_price
-    `,
-      [product]
-    );
-    bestSellerProducts.push(data);
-  }
-  return bestSellerProducts;
-};
-
 export const getProducts = async (categoryId, sort) => {
   const clause = `WHERE p.category_name = '${CATEGORY_NAME[categoryId]}'`;
   const data = await database.query(
