@@ -31,6 +31,7 @@ const Test: FC = () => {
   const handleDecrement = () => {
     dispatch(decrement());
   };
+  console.log(data);
 
   return (
     <div className="bg-yellow-100 mt-[124px]">

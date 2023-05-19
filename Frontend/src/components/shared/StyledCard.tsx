@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import Main from '../models/mainModels';
+import Main from '../../models/mainModels';
 import { BsHeart, BsFillHeartFill } from 'react-icons/bs';
 import { GrShop } from 'react-icons/gr';
 
@@ -27,16 +27,20 @@ const StyledCard: FC<StyledCardProps> = ({ item }) => {
     <div onMouseOver={handleImageHover} onMouseLeave={handleImageLeave}>
       <div className="relative">
         <img
-          src={isMouseOver ? item.imageUrl[1] : item.imageUrl[0]}
-          className="cursor-pointer align-middle h-full w-[90%] hover:animate-fade-in"
+          src={
+            isMouseOver
+              ? 'https://cdn.pixabay.com/photo/2023/04/16/08/35/cosmetics-7929472_1280.jpg'
+              : 'https://cdn.pixabay.com/photo/2023/04/16/08/35/skincare-7929470_1280.jpg'
+          }
+          className="cursor-pointer align-middle h-full w-[100%] hover:animate-fade-in"
         ></img>
         {isMouseOver ? (
           <>
-            <p className="absolute right-12 bottom-10 bg-white animate-fade-in border rounded-full  p-2 text-xs cursor-pointer">
+            <p className="absolute right-2 bottom-10 bg-white animate-fade-in border rounded-full  p-2 text-xs cursor-pointer">
               <GrShop />
             </p>
             <p
-              className="absolute right-12 bottom-1 bg-white animate-fade-in border rounded-full p-2 text-xs cursor-pointer"
+              className="absolute right-2 bottom-1 bg-white animate-fade-in border rounded-full p-2 text-xs cursor-pointer"
               onMouseOver={handleIconHover}
               onMouseLeave={handleIconLeave}
             >

@@ -4,6 +4,7 @@ import counterSlice from './features/counters/counterSlice';
 import filterSlice from './features/filters/filterSlice';
 import filterValueSlice from './features/filters/filterValueSlice';
 import mainSlice from './features/main/bestSellerSlice';
+import sideBarSlice from './features/sidebars/sideBarSlice';
 
 // redux '스토어' 를 생성 한다.   * (하단 링크 공식문서를 참조) *
 
@@ -18,6 +19,7 @@ const store = configureStore({
     filter: filterSlice,
     filterValue: filterValueSlice,
     mains: mainSlice,
+    sidebar: sideBarSlice,
   },
 });
 

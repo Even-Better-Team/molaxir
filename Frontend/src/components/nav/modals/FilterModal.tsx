@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { setKeyword } from '../features/filters/filterValueSlice';
-import { useAppDispatch, useAppSelector } from '../hooks/useTypedSelector';
+import { setKeyword } from '../../../features/filters/filterValueSlice';
+import { useAppDispatch, useAppSelector } from '../../../hooks/useTypedSelector';
 
 interface FilterModalProps {
   handleFilterClick: () => void;
@@ -22,22 +22,15 @@ const FilterModal: React.FC<FilterModalProps> = ({ handleFilterClick }) => {
     if (e.key === ' ') {
       e.preventDefault();
     }
-    // 엔터 키를 눌렀을 때만 이벤트를 처리합니다.
     if (e.key === 'Enter') {
-      // 이동할 경로를 설정하고, 검색어를 쿼리 파라미터로 전달합니다.
       navigate(`/search/?keyword=${encodeURIComponent(keyword || '')}`);
     }
   };
-
-  // useEffect(() => {
-  //   console.log(keyword);
-  // }, [keyword]);
 
   return (
     <div
       className="fixed top-[124px] left-0 right-0 bottom-0 bg-black cursor-default"
       style={{ backgroundColor: 'rgba(0,0,0,0.4)' }}
-      // onClick={handleFilterClick}
     >
       <div className="fixed top-[90px] left-0 right-0 h-[20px] p-2 opacity-100 bg-white" style={{ opacity: 1 }}>
         <input
