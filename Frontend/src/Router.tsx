@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Nav from './components/Nav';
+import Nav from './components/nav/Nav';
 import About from './pages/categories/about/About';
 import Routine from './pages/categories/routine/Routine';
 import AllProductsList from './pages/categories/shop/AllProductsList';
@@ -9,7 +9,7 @@ import Shop from './pages/categories/shop/Shop';
 import SkinCareList from './pages/categories/shop/SkinCareList';
 import Join from './pages/join/Join';
 import Login from './pages/login/Login';
-import Main from './pages/Main';
+import Main from './components/main/Main';
 import MyPage from './pages/mypage/MyPage';
 import OrderList from './pages/orderlist/OrderList';
 import Search from './pages/search/Search';

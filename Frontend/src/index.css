@@ -8,4 +8,10 @@
     .test {
       @apply grid grid-cols-4 md:grid-cols-6
     }
+    .semiTitle {
+      @apply text-center mt-24 text-xl font-semibold
+    }
+    .navMargin {
+     @apply mt-[40px] md:mt-[100px]
+    }
   }
