@@ -1,6 +1,6 @@
-import * as searchService from "../services/searchService";
-import { catchAsync } from "../utils/errors";
-import { PAGE_PER_PRODUCTS } from "../constants";
+import * as searchService from "../services/searchService.js";
+import { catchAsync } from "../utils/errors.js";
+import { PAGE_PER_PRODUCTS } from "../constants.js";
 
 export const getSearchProducts = catchAsync(async (req, res) => {
   const { keyword, pageNo = 1, sort = "new" } = req.query;

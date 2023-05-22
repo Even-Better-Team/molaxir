@@ -1,5 +1,5 @@
-import database from "./database";
-import { LIMIT, CATEGORY_NAME, SORT_BY } from "../constants";
+import database from "./database.js";
+import { LIMIT, CATEGORY_NAME, SORT_BY } from "../constants.js";
 
 export const getBestSellerProductId = async (categoryId) => {
   const clause =
