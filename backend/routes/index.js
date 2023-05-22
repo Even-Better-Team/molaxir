@@ -1,6 +1,6 @@
 import express from "express";
 import productRouter from "./productRouter.js";
-import qnaRouter from "./qnaRouter.js";
+//import qnaRouter from "./qnaRouter.js";
 import shopRouter from "./shopRouter.js";
 import searchRouter from "./searchRouter.js";
 

@@ -1,4 +1,4 @@
-import * as productService from "../services/productService";
+import * as productService from "../services/productService.js";
 import { catchAsync } from "../utils/errors.js";
 
 export const getProductDetail = catchAsync(async (req, res) => {

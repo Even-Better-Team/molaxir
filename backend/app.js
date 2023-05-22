@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
-import routes from "./routes/index";
-import { globalErrorHandler } from "./utils/errors";
+import routes from "./routes/index.js";
+import { globalErrorHandler } from "./utils/errors.js";
 
 export const createApp = () => {
   const app = express();
