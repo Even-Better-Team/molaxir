@@ -5,7 +5,7 @@ const MainImageContainer = () => {
     <div className="relative">
       <img
         src="https://melixirskincare.com/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/5e9ec2a95253d8dc92bc2dc32c5110a4.jpg"
-        className="hidden sm:block sm:h-[90vh] sm:object-cover"
+        className="hidden  sm:block sm:h-[90vh] sm:object-cover sm:w-full"
       ></img>
       <img
         src="https://kr.melixirskincare.com/web/upload/appfiles/ZaReJam3QiELznoZeGGkMG/73037fed8f21fd7592afe1d3758622db.jpg"

@@ -34,7 +34,7 @@ export const getFilters = createAsyncThunk(
   'filterss/getFilters',
   async ({ keyword, pageNo, sort }: GetFiltersPayload, thunkApi) => {
     try {
-      let url = `http://13.124.184.100:3000/search/?keyword=${keyword}`;
+      let url = `${process.env.REACT_APP_API_URL}/search/?keyword=${keyword}`;
 
       if (pageNo) {
         url += `&pageNo=${pageNo}`;

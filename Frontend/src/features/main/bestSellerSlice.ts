@@ -6,7 +6,7 @@ const MAINPAGE_API = 'shop/shop.json';
 
 export const getMains = createAsyncThunk('mains/getMains', async (data, thunkApi) => {
   try {
-    const response = await axios.get<MainApi>('http://13.124.184.100:3000/products');
+    const response = await axios.get<MainApi>(`${process.env.REACT_APP_API_URL}/products`);
     return response.data;
   } catch (error: any) {
     return thunkApi.rejectWithValue(error.message);

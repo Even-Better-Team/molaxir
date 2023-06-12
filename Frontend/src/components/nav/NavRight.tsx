@@ -20,7 +20,7 @@ const NavRight = () => {
   };
 
   const RIGHT_CATEGORIES = [
-    { name: 'Login /', path: '/login' },
+    { name: 'Login', path: '/login' },
     { name: 'Join', path: '/join' },
     {
       onClick: handleFilterClick,
