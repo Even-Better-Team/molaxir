@@ -1,17 +1,55 @@
-import React, { useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { AiFillRightCircle } from 'react-icons/ai';
-import { useAppDispatch, useAppSelector } from '../../../hooks/useTypedSelector';
-import { openSideBar, closeSideBar } from '../../../features/sidebars/sideBarSlice';
+import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { AiFillRightCircle, AiOutlineDown } from 'react-icons/ai';
 
 interface SideBarProps {
   handleSideBarClick: () => void;
 }
 
 const SideBar: React.FC<SideBarProps> = ({ handleSideBarClick }) => {
+  const [isDropDown, setIsDropDown] = useState(false);
+  const dropdownIconRef = useRef<HTMLSpanElement>(null);
   const handleContentClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
   };
+
+  const handleDropDown = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
+    e.stopPropagation();
+    setIsDropDown(!isDropDown);
+  };
+
+  useEffect(() => {
+    const dropdownIconElem = dropdownIconRef.current;
+
+    if (dropdownIconElem) {
+      // check if dropdownIconElem is not null
+      const nativeDropdownClickHandler = (e: MouseEvent) => {
+        e.stopPropagation();
+        // e.preventDefault();
+      };
+
+      dropdownIconElem.addEventListener('click', nativeDropdownClickHandler);
+
+      return () => {
+        dropdownIconElem.removeEventListener('click', nativeDropdownClickHandler);
+      };
+    }
+  }, []);
+
+  const SIDE_BAR_CATEGORIES = [
+    {
+      name: 'Shop',
+      path: '/shop',
+      icon: (
+        <span ref={dropdownIconRef}>
+          <AiOutlineDown onClick={handleDropDown} />
+        </span>
+      ),
+      modalComponent: isDropDown ? <div>drop</div> : null,
+    },
+    { name: 'Routine', path: '/routine' },
+    { name: 'About', path: 'about' },
+  ];
 
   return (
     <div
@@ -29,6 +67,24 @@ const SideBar: React.FC<SideBarProps> = ({ handleSideBarClick }) => {
             </p>
           </Link>
         </div>
+
+        {SIDE_BAR_CATEGORIES.map((category) =>
+          category.icon ? (
+            <Link
+              key={category.name}
+              to={category.path}
+              className="flex justify-between items-center p-4 border border-gray-100"
+            >
+              {category.name}
+              {category.icon}
+              {category.modalComponent}
+            </Link>
+          ) : (
+            <Link key={category.name} to={category.path} className="p-4 border border-gray-100">
+              {category.name}
+            </Link>
+          )
+        )}
       </div>
     </div>
   );
